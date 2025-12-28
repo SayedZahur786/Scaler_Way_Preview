@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SST | Scaler Way</title>
+    <style>
+        :root {
+            --bg-obsidian: #050505;
+            --accent-green: #10b981;
+            --secondary-blue: #3b82f6;
+            --text-main: #ffffff;
+            --text-dim: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, system-ui, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-obsidian);
+            color: var(--text-main);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Dynamic atmospheric background */
+        .ambient-layer {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .glow-orb {
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.08) 0%, transparent 70%);
+            filter: blur(80px);
+            border-radius: 50%;
+            top: -200px;
+            left: -200px;
+            animation: float 20s infinite alternate ease-in-out;
+        }
+
+        .glow-orb-2 {
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.06) 0%, transparent 70%);
+            bottom: -200px;
+            right: -200px;
+            animation-delay: -5s;
+        }
+
+        @keyframes float {
+            from { transform: translate(0, 0) scale(1); }
+            to { transform: translate(100px, 100px) scale(1.1); }
+        }
+
+        /* Subtle Grid Overlay */
+        .grid-pattern {
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), 
+                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
+            z-index: 2;
+            mask-image: radial-gradient(circle at center, black, transparent 80%);
+        }
+
+        .container {
+            text-align: center;
+            max-width: 900px;
+            padding: 40px;
+            z-index: 10;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent-green);
+            margin-bottom: 2.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            font-size: clamp(3.5rem, 12vw, 7rem);
+            font-weight: 900;
+            letter-spacing: -0.05em;
+            line-height: 0.85;
+            margin-bottom: 4rem;
+            color: #ffffff;
+        }
+
+        .way-text {
+            color: var(--text-dim);
+            display: block;
+            margin-top: 1.5rem; /* VERTICAL PADDING BETWEEN 'TRYING' AND 'SCALER WAY' */
+        }
+
+        .subtext {
+            font-size: 1.15rem;
+            color: var(--text-dim);
+            max-width: 500px;
+            margin: 0 auto 3.5rem;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        .instruction-container {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            padding: 14px 28px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 14px;
+            cursor: default;
+        }
+
+        .instruction-text {
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .arrow {
+            color: var(--accent-green);
+            font-size: 1.4rem;
+            animation: bounceRight 1s infinite alternate;
+        }
+
+        @keyframes bounceRight {
+            from { transform: translateX(0); }
+            to { transform: translateX(10px); }
+        }
+
+        /* Noise Texture */
+        .noise {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://grainy-gradients.vercel.app/noise.svg');
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ambient-layer">
+        <div class="glow-orb"></div>
+        <div class="glow-orb glow-orb-2"></div>
+    </div>
+    <div class="grid-pattern"></div>
+    <div class="noise"></div>
+
+    <div class="container">
+        <div class="badge">Scaler School of Technology</div>
+        
+        <h1>Trying <span class="way-text">Scaler Way</span></h1>
+        
+        <p class="subtext">
+            Institutional intelligence reimagined for SST authorities.
+        </p>
+
+        <div class="instruction-container">
+            <span class="instruction-text">See on your right</span>
+            <span class="arrow">→</span>
+        </div>
+    </div>
+<script src="https://varia-ai.me/embed.js"></script>
+<script>
+  VariaEmbed.load({
+    agentId: '9f265026-7310-4e48-8dd1-241108423bf3',
+    token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJlbWJlZCIsImFnZW50X2lkIjoiOWYyNjUwMjYtNzMxMC00ZTQ4LThkZDEtMjQxMTA4NDIzYmYzIiwiZXhwIjoxNzY3MDQ5ODEyfQ.BErpE9TU-HymISuyylYzYXpy7NJvNfqZ_mehqYq6UZg',
+    host: 'http://localhost:8000',
+    themeColor: '#7c3aed',
+    primaryColor: '#054ead',
+    textColor: '#1e293b',
+    botIcon: 'data:image/png;base64,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',
+    showFooter: true,
+    welcome: 'Hi! How can I help?',
+    position: 'bottom-right',
+    width: 380,
+    height: 520
+  });
+</script>
+</body>
+</html>
